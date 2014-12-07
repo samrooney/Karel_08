@@ -1,21 +1,32 @@
 /**
  * A SteepleChaseRacer is a Racer that can jump over hurdles of any height.
  * 
- * @author <...>
+ * @author <Sam R>
  * @version <...>
  *
  */
 public class SteepleChaseRacer extends Racer {
 	
-	//TODO Subclasses do not inherit any constructors from their superclass
-	//Consequently, you will need to provide a compatible constructor
 	
-	/**
-	 * Re-implement the method to allow for jumping hurdles of any height
-	 */
+   public SteepleChaseRacer(int y){
+      super(y);
+   }
+
 	@Override
-	public void jumpRight() {
-		
+	public void jumpRight(){
+		turnLeft();
+      int n = 0;
+   while(!rightIsClear()){
+      move();
+      n++;
+   }
+      turnRight();
+      move();
+      turnRight();
+   for(int k = 1; k <= n; k++){
+      move();
+   }
+   turnLeft();
 	}
 
 }
